@@ -18,17 +18,17 @@ import org.apache.log4j.Logger;
  * 
  */
 public class PartitionList {
-	static final Logger logger = Logger.getLogger(PartitionList.class);
+	static final Logger loggerer = Logger.getLogger(PartitionList.class);
 
 	public static <T> List<List<T>> partition(List<T> list, int size) {
 
 		if (list == null) {
-			logger.error("list is not referenced in the memory, list must instanciated");
+			loggerer.error("list is not referenced in the memory, list must instanciated");
 
 			throw new NullPointerException("'list' must not be null");
 		}
 		if (!(size > 0)) {
-			logger.error("Problem with the size of list");
+			loggerer.error("Problem with the size of list");
 
 			throw new IllegalArgumentException("'size' must be greater than 0");
 
@@ -50,16 +50,16 @@ public class PartitionList {
 		@Override
 		public List<T> get(int index) {
 
-			logger.debug("List: " + list);
+			loggerer.debug("List: " + list);
 
 			int listSize = size();
 			if (listSize < 0) {
-				logger.error("size is negative");
+				loggerer.error("size is negative");
 
 				throw new IllegalArgumentException("negative size: " + listSize);
 			}
 			if (index < 0) {
-				logger.error("index is negative");
+				loggerer.error("index is negative");
 
 				throw new IndexOutOfBoundsException("index " + index + " must not be negative");
 			}
